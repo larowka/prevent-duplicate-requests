@@ -1,0 +1,50 @@
+{
+  "name": "larowka/prevent-duplicate-requests",
+  "description": "Prevent duplicate requests middleware for Laravel applications.",
+  "type": "library",
+  "keywords": [
+    "laravel",
+    "middleware",
+    "duplicate requests",
+    "throttle",
+    "api",
+    "concurrent",
+    "request"
+  ],
+  "homepage": "https://github.com/larowka/prevent-duplicate-requests",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Serj Toropilin",
+      "email": "larowka@icloud.com",
+      "homepage": "https://larowka.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "illuminate/http": "^10.0|^11.0",
+    "illuminate/support": "^10.0|^11.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "orchestra/testbench": "^8.0|^9.0",
+    "laravel/pint": "^1.16"
+  },
+  "autoload": {
+    "psr-4": {
+      "Larowka\\PreventDuplicateRequests\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Larowka\\PreventDuplicateRequests\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "pint": "vendor/bin/pint"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
