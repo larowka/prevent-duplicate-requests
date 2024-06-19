@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/larowka/prevent-duplicate-requests.svg)](https://packagist.org/packages/larowka/prevent-duplicate-requests)
 [![Total Downloads](https://img.shields.io/packagist/dt/larowka/prevent-duplicate-requests.svg)](https://packagist.org/packages/larowka/prevent-duplicate-requests)
-[![License](https://img.shields.io/github/license/larowka/prevent-duplicate-requests.svg)](LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Middleware for Laravel that prevents duplicate requests based on user actions.
 
