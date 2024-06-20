@@ -1,0 +1,31 @@
+name: Run tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: [8.1, 8.2, 8.3]
+        composer-flags: ['--prefer-lowest', '--prefer-stable']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@master
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: ${{ matrix.php-version }}
+
+      - name: Update dependencies
+        run: composer update ${{ matrix.composer-flags }} --prefer-dist --no-suggest --no-interaction
+
+      - name: Run tests
+        run: composer testdox
