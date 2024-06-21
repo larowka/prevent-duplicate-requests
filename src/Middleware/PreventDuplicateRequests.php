@@ -5,6 +5,7 @@ namespace Larowka\PreventDuplicateRequests\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
 
@@ -40,7 +41,14 @@ class PreventDuplicateRequests
      */
     protected function getRequestKey(Request $request): string
     {
-        $input = $request->all();
+        $input = $request->input();
+
+        if ($files = $request->allFiles()) {
+            foreach ($files as $key => $file) {
+                /** @var UploadedFile $file */
+                $input[$key] = $file->getClientOriginalName() . $file->getSize();
+            }
+        }
 
         if (($auth = $request->user()) && $auth instanceof Authenticatable) {
             $user = $auth->getAuthIdentifier();
